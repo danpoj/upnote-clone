@@ -1,11 +1,17 @@
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 import './globals.css'
+import { Sidebar } from '@/components/sidebar'
+import { Header } from '@/components/header'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' className={GeistSans.className}>
-      <body className='h-full'>{children}</body>
+      <body className='h-full flex'>
+        <Header />
+        <Sidebar />
+        {children}
+      </body>
     </html>
   )
 }
