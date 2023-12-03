@@ -9,8 +9,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en' className={GeistSans.className}>
       <body className='h-full flex'>
         <Header />
-        <Sidebar />
-        {children}
+        <div className='pt-12 flex w-full h-screen'>
+          <Sidebar />
+          {children}
+        </div>
       </body>
     </html>
   )
