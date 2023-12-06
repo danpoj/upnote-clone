@@ -120,7 +120,6 @@ export function CreateNotebookModal({ children, isTooltip = true }: Props) {
                     className='h-[4.6rem] rounded overflow-hidden relative'
                   >
                     <Image
-                      priority
                       src={`/notebook-cover-images/cover-${i + 1}.png`}
                       width={106}
                       height={134}
