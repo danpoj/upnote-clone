@@ -17,15 +17,6 @@ export function Notebooks() {
   const [isOpen, setIsOpen] = useState(true)
   const { notebooks, isMount, deleteNotebook } = useNotebooks()
   const pathname = decodeURIComponent(usePathname().split('/')[2])
-  const router = useRouter()
-
-  const onDeleteNotebook = (index: number) => {
-    const { redirect } = deleteNotebook(index)
-
-    if (redirect === false) return
-
-    router.push('/notebooks')
-  }
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
@@ -81,7 +72,7 @@ export function Notebooks() {
 
               <div className='hidden group-hover:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2'>
                 <Button
-                  onClick={() => onDeleteNotebook(i)}
+                  onClick={() => deleteNotebook(i)}
                   size='icon'
                   variant='ghost'
                   className='w-6 h-6 p-1 text-primary/60 hover:text-red-500'
