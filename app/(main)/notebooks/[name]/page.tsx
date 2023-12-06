@@ -3,6 +3,7 @@
 import { useNotebooks } from '@/components/context/notebook'
 import { Editor } from '@/components/editor/editor'
 import { Loader } from '@/components/loader'
+import { formatDate } from '@/lib/format-date'
 import { cn } from '@/lib/utils'
 
 import { MoreHorizontal, Trash2 } from 'lucide-react'
@@ -78,6 +79,7 @@ export default function Page({ params: { name } }: Props) {
             <section className='h-full overflow-y-scroll pb-10'>
               {notebook.notes.map((note, index) => {
                 const date = new Date(note.createdAt)
+                const formattedDate = formatDate(note.createdAt)
 
                 return (
                   <button
@@ -96,7 +98,7 @@ export default function Page({ params: { name } }: Props) {
                     </p>
 
                     <div className='flex items-center w-full'>
-                      <span className='text-primary/40 text-xs'>{date.toLocaleString()}</span>
+                      <span className='text-primary/40 text-xs'>{formattedDate}</span>
                       <button
                         onClick={() => deleteNote(name, index)}
                         className='hidden group-hover:block ml-auto text-primary/60 hover:text-red-500'
