@@ -58,7 +58,7 @@ export function Notebooks() {
               key={notebook.name}
               className={cn('relative hover:bg-primary/5 group', pathname === notebook.name && 'bg-primary/5')}
             >
-              <Link href={`/notebooks/${notebook.name}`} className='flex items-center gap-2 px-4 py-2'>
+              <Link href={`/notebooks/${notebook.name}`} className='flex items-center gap-2 pl-4 pr-14 py-2'>
                 <Image
                   src={`/notebook-cover-images/cover-${notebook.imageIndex}.png`}
                   alt='notebook cover image'
