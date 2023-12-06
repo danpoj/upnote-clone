@@ -1,9 +1,16 @@
+'use client'
+
 import { Allnotes } from './all-notes'
+import { useHideSidebar } from './context/hide-sidebar'
 import { Notebooks } from './notebooks'
 
 export function Sidebar() {
+  const { isSidebar } = useHideSidebar()
+
+  if (!isSidebar) return
+
   return (
-    <div className='border-r w-[240px]'>
+    <aside className='border-r w-[240px] overflow-y-scroll shrink-0'>
       <Allnotes />
       <Notebooks />
 
@@ -17,6 +24,6 @@ export function Sidebar() {
           </button>
         ))}
       </div>
-    </div>
+    </aside>
   )
 }
