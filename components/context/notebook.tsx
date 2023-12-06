@@ -156,13 +156,15 @@ export const NotebookProvider = ({ children }: { children: ReactNode }) => {
     if (localStorageNotebooks) {
       setNotebooks(JSON.parse(localStorageNotebooks))
     }
-
-    setIsMount(true)
   }, [])
 
   useEffect(() => {
     localStorage.setItem('notebooks', JSON.stringify(notebooks))
   }, [notebooks])
+
+  useEffect(() => {
+    setIsMount(true)
+  }, [])
 
   return (
     <NotebookContext.Provider
